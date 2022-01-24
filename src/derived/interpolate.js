@@ -111,6 +111,7 @@ export default function interpolate(value, config) {
     extrapolate = Extrapolate.EXTEND,
     extrapolateLeft,
     extrapolateRight,
+    easing,
   } = config;
 
   checkMinElements('inputRange', inputRange);
@@ -149,6 +150,7 @@ export default function interpolate(value, config) {
       output
     );
   }
-
+  // Easing
+  output = easing(output)
   return output;
 }
