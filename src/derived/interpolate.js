@@ -127,6 +127,8 @@ export default function interpolate(value, config) {
   convertToRadians(outputRange);
   const left = extrapolateLeft || extrapolate;
   const right = extrapolateRight || extrapolate;
+  // Easing
+  value = easing(value)
   let output = interpolateInternal(value, inputRange, outputRange);
 
   if (left === Extrapolate.EXTEND) {
@@ -150,7 +152,6 @@ export default function interpolate(value, config) {
       output
     );
   }
-  // Easing
-  output = easing(output)
+  
   return output;
 }
